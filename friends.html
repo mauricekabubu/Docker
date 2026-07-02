@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{% block title %}
+Friends
+{% endblock %}
+
+{% block content %}
+{% if name%}
+    <h1>Hi there {{name}}</h1>
+    <form action="{{url_for('friends', name=name)}}" method="post">
+        {{form.hidden_tag()}}
+        {{form.name.label}}
+        <br>
+        {{form.name(size=20)}}
+        <br>
+        {{form.email.label}}
+        <br>
+        {{form.email(size=20)}}
+        <br>
+        {{form.submit()}}
+    </form>
+    <br><br><br>
+    <br><br>
+    <table border="2">
+        <tr>
+            <th>Name:</th>
+        </tr>
+        {% for curr_user in curr_users %}
+        <tr>
+            <td>{{curr_user.id}}</td><br><td>{{curr_user.name}}-{{curr_user.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+{% endif %}
+{% endblock %}
