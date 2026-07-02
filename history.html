@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block title %}
+history
+{% endblock %}
+
+{% block content %}
+<h1 style="color: blue;font-family: Roboto;">History</h1>
+<br><br>
+    <table class="table table-sm table-dark">
+        <thead>
+            <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>@{{ user.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
